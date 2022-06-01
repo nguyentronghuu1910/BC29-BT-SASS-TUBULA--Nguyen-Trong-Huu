@@ -1,0 +1,97 @@
+header {
+   position: absolute;
+   width: 100%;
+   z-index: 1;
+
+   .header1.container {
+      padding: 0 15px !important;
+      position: relative;
+      z-index: 2;
+
+      .navbar-brand {
+         margin: 0;
+         padding: 0;
+
+         img {
+            @include imgFull
+         }
+      }
+
+      .customNav1 {
+         justify-content: space-evenly;
+         position: absolute;
+         right: 50%;
+         left: 50%;
+
+         .custom_ul1 {
+            .nav-item {
+               padding-right: $pd-4;
+
+               .nav-link {
+                  @include styleText($fs-1, $fw-6, $color-dark-1, $lh-8);
+                  transition: $transit-1;
+                  position: relative;
+
+                  &::after {
+                     content: "";
+                     display: block;
+                     position: absolute;
+                     bottom: 5px;
+                     left: 50%;
+                     transform: translateX(-50%);
+                     height: 8px;
+                     width: 8px;
+                     border-radius: 50%;
+                     background-color: $color-pink-1;
+                     transition: $transit-1;
+                     opacity: 0;
+                  }
+
+               }
+
+               .active {
+                  &::after {
+                     opacity: 1;
+                  }
+               }
+
+               &:hover {
+                  .nav-link {
+                     @include hover1($color-pink-1, none)
+                  }
+               }
+
+
+            }
+         }
+      }
+
+      .customNav2 {
+         position: absolute;
+         right: 80px;
+         top: 10px;
+         position: absolute;
+         right: 0;
+         top: 10px;
+
+         .custom_ul2 {
+            .nav-item {
+               margin-left: 12px;
+
+               .nav-link1 {
+                  @include styleText($fs-1, $fw-6, $color-dark-0, $lh-8);
+                  transition: $transit-1;
+               }
+
+               &:hover {
+                  .nav-link1 {
+                     @include hover1($color-pink-1, none)
+                  }
+               }
+            }
+         }
+      }
+
+
+   }
+}

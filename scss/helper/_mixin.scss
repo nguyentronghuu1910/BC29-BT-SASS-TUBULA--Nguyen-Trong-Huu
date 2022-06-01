@@ -1,0 +1,37 @@
+@mixin styleText($fs, $fw, $color, $lh) {
+   font-size: $fs;
+   font-weight: $fw;
+   color: $color  !important;
+   line-height: $lh;
+}
+
+@mixin pTextPink {
+   color: $color-pink-1;
+   margin-bottom: $mg-6;
+}
+
+@mixin hover1 ($color, $bs) {
+   color: $color  !important;
+   box-shadow: $bs;
+}
+
+@mixin row($jc, $ai) {
+   justify-content: $jc;
+   align-items: $ai;
+}
+
+@mixin imgFull {
+   max-width: 100%;
+   height: auto;
+   width: 100%;
+}
+
+@mixin posiAbso($z-i, $t-posit, $r-posit, $b-posit, $l-posit, ) {
+   position: absolute;
+   overflow: hidden;
+   z-index: $z-i;
+   top: $t-posit;
+   right: $r-posit;
+   bottom: $b-posit;
+   left: $l-posit;
+}

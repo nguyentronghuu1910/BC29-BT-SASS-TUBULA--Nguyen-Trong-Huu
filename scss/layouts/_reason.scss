@@ -1,0 +1,55 @@
+.reason {
+   position: relative;
+
+   .imgBG {
+      @include posiAbso($z-i-1,
+         0,
+         0,
+         0,
+         $l-posit-5,
+      );
+
+      img {
+         @include imgFull;
+      }
+   }
+
+   .pd-wrap {
+      padding: 60px 0;
+   }
+
+   .row {
+      @include row($jc-1, $ai-1)
+   }
+
+   .textWrap1 {
+      p {
+         @include pTextPink;
+      }
+
+      h1 {
+         @include styleText($fs-9, $fw-7, $color-dark-0, $lh-1);
+      }
+   }
+
+   .imgWrap1 {
+      padding: 0 20px;
+
+      img {
+         @include imgFull;
+      }
+   }
+
+   .imgBG1 {
+      @include posiAbso($z-i-1,
+         unset,
+         0,
+         0,
+         0,
+      );
+
+      img {
+         @include imgFull;
+      }
+   }
+}

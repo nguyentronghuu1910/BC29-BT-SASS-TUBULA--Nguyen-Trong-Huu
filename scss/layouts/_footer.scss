@@ -1,0 +1,72 @@
+footer {
+   position: relative;
+   z-index: 3;
+   background-color: $color-pink-3;
+   overflow: hidden;
+
+   .footer_wrap_col {
+      padding-right: 45px;
+   }
+
+   h1 {
+      padding-left: 15px;
+      @include styleText($fs-12, $fw-7, $color-white-3, $lh-1);
+   }
+
+   .footer_contact {
+
+      .footer_ul {
+         flex-direction: column;
+      }
+
+      .nav-item {
+         i {
+            padding-right: 10px
+         }
+
+         @include styleText($fs-1, normal, $color-white-3, $lh-1);
+      }
+   }
+
+
+
+   .form-wrap {
+      padding: 40px 0;
+   }
+
+   .input_wrap {
+      input {
+         width: 100%;
+         border: 1px solid rgba(255, 255, 255, .1);
+         border-radius: 50px;
+         transition: all 500ms ease;
+         background: transparent;
+         line-height: 1;
+         display: block;
+         padding: 1em;
+         color: white;
+         text-align: center;
+         height: 3.2em;
+
+         &:focus {
+            border: 1px solid rgba(255, 255, 255, 1);
+         }
+
+         &:focus-visible {
+            outline: none;
+         }
+      }
+   }
+
+   .imgBG4 {
+      position: absolute;
+      z-index: -1;
+      bottom: 0%;
+      right: -8%;
+      left: -9%;
+
+      img {
+         @include imgFull;
+      }
+   }
+}

@@ -1,0 +1,98 @@
+.teachers {
+   position: relative;
+
+   .teacher_thumb_wrap {
+      background-color: rgba(255, 255, 255, 1);
+      border-radius: 10px;
+      padding: 0 20px;
+      overflow: hidden;
+      transition: $transit-1;
+
+      &:hover {
+         border-radius: 10px;
+         box-shadow: 0 20px 20px -10px rgb(0, 0, 0 / 20%);
+      }
+   }
+
+   .teacher__top {
+      @include row($jc-2, $ai-1);
+      padding-right: 10px;
+      padding-left: 10px;
+   }
+
+   .teacher_bubble {
+      position: relative;
+
+      h1 {
+         @include styleText($fs-11, $fw-7, $color-dark-1, $lh-1);
+      }
+   }
+
+   .bubbleBG {
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -15%;
+
+      img {
+         @include imgFull;
+      }
+   }
+
+   .teacher__bot {
+      position: relative;
+      z-index: 4;
+   }
+
+   .teacher_img {
+      margin: 0 -20px;
+
+      img {
+         @include imgFull;
+         border-radius: 10px 10px 0 0;
+         transform: scale3d(1, 1, 1);
+         transition: $transit-1;
+      }
+
+      &:hover {
+         img {
+            border-radius: 10px 10px 0 0;
+            transform: scale3d(1.05, 1.05, 1.05);
+         }
+      }
+   }
+
+   .teacher_text {
+      @include row($jc-3, $ai-1);
+      flex-direction: column;
+      text-align: center;
+      padding: 0 15px;
+
+      P {
+         &:first-child {
+            color: $color-pink-1;
+            font-size: $fs-1;
+         }
+
+         &:last-child {
+            @include styleText($fs-2, $fw-2, $color-dark-1, $lh-2);
+
+         }
+      }
+
+      h2 {
+         @include styleText($fs-12, $fw-7, $color-dark-0, $lh-2);
+         margin-bottom: 15px;
+      }
+   }
+
+   .imgBG3 {
+      position: absolute;
+      bottom: 0%;
+
+      img {
+         @include imgFull;
+      }
+   }
+}

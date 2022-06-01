@@ -1,0 +1,15 @@
+@import "./base/reset";
+
+@import "./helper/variables";
+@import "./helper/mixin";
+
+@import"./layouts/header";
+@import"./layouts/reason";
+@import"./layouts/features";
+@import"./layouts/student";
+@import"./layouts/teachers";
+@import"./layouts/footer";
+
+
+@import "./components/button";
+@import "./components/socials";
