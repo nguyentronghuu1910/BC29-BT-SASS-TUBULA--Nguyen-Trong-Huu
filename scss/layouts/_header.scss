@@ -1,97 +1,151 @@
-header {
-   position: absolute;
-   width: 100%;
-   z-index: 1;
+.header {
+  max-height: 100px;
+  transition: all 0.5s ease-in-out;
+  // transform: translateY(0%);
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
 
-   .header1.container {
-      padding: 0 15px !important;
-      position: relative;
-      z-index: 2;
+  @include mediaQuery($lg) {
+    background-color: $light;
+  }
 
-      .navbar-brand {
-         margin: 0;
-         padding: 0;
+  .header__container {
+    @include flex(center, space-between);
+  }
+}
 
-         img {
-            @include imgFull
-         }
+// when menu open in mobile
+
+.header.sidenav-open {
+  transform: translateX(300px);
+  position: fixed;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+// header when scroll
+.header.header-scroll {
+  position: fixed;
+  z-index: 9999;
+  background-color: $light;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease-in-out;
+
+  .header__logo {
+    .header__logo-img {
+      @include img(5rem, 5rem);
+    }
+  }
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+
+  .header__logo-img {
+    @include img(8rem, 8rem);
+    transition: all 0.5s ease-in-out;
+
+    @include mediaQuery($lg) {
+      @include img(6rem, 6rem);
+    }
+
+    @include mediaQuery($xs) {
+      @include img(5rem, 5rem);
+    }
+  }
+  .menuToggle {
+    @include flex(center, center);
+    flex-direction: column;
+    width: 40px;
+    height: 50px;
+    transform: rotate(0deg);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    margin-right: $m-3;
+    display: none;
+
+    @include mediaQuery($lg) {
+      display: flex;
+    }
+    span {
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: $pink;
+      border-radius: 8px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      will-change: transform;
+      transition: all 0.5s ease-in-out;
+      opacity: 1;
+
+      + span {
+        margin-top: $m-2;
       }
+    }
+  }
 
-      .customNav1 {
-         justify-content: space-evenly;
-         position: absolute;
-         right: 50%;
-         left: 50%;
+  .menuToggle.open {
+    span:nth-child(1) {
+      transform: rotate(135deg);
+    }
 
-         .custom_ul1 {
-            .nav-item {
-               padding-right: $pd-4;
+    span:nth-child(2) {
+      // transform: translateX(-100px);
+      opacity: 0;
+    }
 
-               .nav-link {
-                  @include styleText($fs-1, $fw-6, $color-dark-1, $lh-8);
-                  transition: $transit-1;
-                  position: relative;
+    span:nth-child(3) {
+      transform: rotate(-135deg);
+    }
 
-                  &::after {
-                     content: "";
-                     display: block;
-                     position: absolute;
-                     bottom: 5px;
-                     left: 50%;
-                     transform: translateX(-50%);
-                     height: 8px;
-                     width: 8px;
-                     border-radius: 50%;
-                     background-color: $color-pink-1;
-                     transition: $transit-1;
-                     opacity: 0;
-                  }
+    span + span {
+      margin-top: -4px; // bằng với độ dày của thẻ span menu icon.
+    }
+  }
+}
 
-               }
+.header__nav {
+  @include flex(center, initial);
 
-               .active {
-                  &::after {
-                     opacity: 1;
-                  }
-               }
+  @include mediaQuery($lg) {
+    display: none;
+  }
 
-               &:hover {
-                  .nav-link {
-                     @include hover1($color-pink-1, none)
-                  }
-               }
-
-
-            }
-         }
+  .navbar {
+    display: flex;
+    .navbar__item {
+      margin: 0 $m-6;
+      a {
+        @include textStyle($fs-2, $fw-3, $lh-0, $black);
+        transition: all 0.3s linear;
+        &:hover {
+          color: $pink-1;
+        }
       }
+    }
+  }
+  .header__contact {
+    margin-left: $m-9;
+    .header__contact-social {
+      margin: 0 $m-1;
+      @include textStyle($fs-1, $fw-0, $lh-0, $black);
 
-      .customNav2 {
-         position: absolute;
-         right: 80px;
-         top: 10px;
-         position: absolute;
-         right: 0;
-         top: 10px;
-
-         .custom_ul2 {
-            .nav-item {
-               margin-left: 12px;
-
-               .nav-link1 {
-                  @include styleText($fs-1, $fw-6, $color-dark-0, $lh-8);
-                  transition: $transit-1;
-               }
-
-               &:hover {
-                  .nav-link1 {
-                     @include hover1($color-pink-1, none)
-                  }
-               }
-            }
-         }
+      &:hover {
+        color: $pink-1;
       }
-
-
-   }
+    }
+    .header__contact-phone {
+      margin-right: $m-3;
+      @extend .mybtn;
+      @extend .mybtn.mybtn-primary;
+      i {
+        margin-right: $m-2;
+      }
+    }
+  }
 }

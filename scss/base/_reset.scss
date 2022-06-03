@@ -1,27 +1,14 @@
-* {
-   margin: 0;
-   padding: 0;
-   font-family: 'Poppins', sans-serif;
-   box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Open Sans', sans-serif;
 }
 
-a,
-a:hover {
-   text-decoration: none;
-}
-
-.wrap-pd {
-   padding: 60px 0;
-}
-
-.mg-b-1 {
-   margin-bottom: 35px;
-}
-
-.mg-b-2 {
-   margin-bottom: 15px;
-}
-
-.pd-mid {
-   padding: 0 30px;
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    // scroll-behavior: smooth;
 }
