@@ -179,6 +179,12 @@ html {
   margin-left: 0.8rem;
 }
 
+#header.header-scroll {
+  top: 0;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
 .header {
   max-height: 100px;
   -webkit-transition: all 0.5s ease-in-out;
@@ -364,17 +370,49 @@ html {
   margin: 0 2.4rem;
 }
 
-.header__nav .navbar .navbar__item a {
+.header__nav .nav-link {
+  position: relative;
   font-size: 1.4rem;
   font-weight: 600;
   line-height: initial;
   color: #000;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
-.header__nav .navbar .navbar__item a:hover {
+.header__nav .nav-link::after {
+  content: "" !important;
+  display: block;
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #b61984;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  opacity: 0;
+}
+
+.header__nav .nav-link:hover {
   color: #b61984;
+}
+
+.header__nav .nav-link:hover::after {
+  opacity: 1;
+  height: 12px;
+  width: 12px;
+}
+
+.header__nav .active {
+  color: #b61984 !important;
+}
+
+.header__nav .active::after {
+  opacity: 1;
 }
 
 .header__nav .header__contact {
@@ -976,6 +1014,8 @@ html {
   height: 5rem;
   border-radius: 3rem;
   outline: none;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .footer .footer__content-wrap .footer__item .footer__item-form input::-webkit-input-placeholder {
@@ -992,6 +1032,14 @@ html {
 
 .footer .footer__content-wrap .footer__item .footer__item-form input::placeholder {
   color: #fff;
+}
+
+.footer .footer__content-wrap .footer__item .footer__item-form input:focus {
+  border: 1px solid white;
+}
+
+.footer .footer__content-wrap .footer__item .footer__item-form input:focus-visible {
+  outline: none;
 }
 
 .footer .footer__content-wrap .footer__item .footer__item-form a {

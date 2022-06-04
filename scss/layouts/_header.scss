@@ -1,3 +1,8 @@
+#header.header-scroll {
+  top: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
 .header {
   max-height: 100px;
   transition: all 0.5s ease-in-out;
@@ -56,6 +61,7 @@
       @include img(5rem, 5rem);
     }
   }
+
   .menuToggle {
     @include flex(center, center);
     flex-direction: column;
@@ -70,6 +76,7 @@
     @include mediaQuery($lg) {
       display: flex;
     }
+
     span {
       display: block;
       width: 100%;
@@ -83,7 +90,7 @@
       transition: all 0.5s ease-in-out;
       opacity: 1;
 
-      + span {
+      +span {
         margin-top: $m-2;
       }
     }
@@ -103,7 +110,7 @@
       transform: rotate(-135deg);
     }
 
-    span + span {
+    span+span {
       margin-top: -4px; // bằng với độ dày của thẻ span menu icon.
     }
   }
@@ -118,19 +125,56 @@
 
   .navbar {
     display: flex;
+
     .navbar__item {
       margin: 0 $m-6;
-      a {
-        @include textStyle($fs-2, $fw-3, $lh-0, $black);
-        transition: all 0.3s linear;
-        &:hover {
-          color: $pink-1;
-        }
-      }
     }
   }
+
+  .nav-link {
+    position: relative;
+    @include textStyle($fs-2, $fw-3, $lh-0, $black);
+    transition: $transit-1;
+
+    &::after {
+      content: "" !important;
+      display: block;
+      position: absolute;
+      bottom: -3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background-color: $pink-1;
+      transition: $transit-1;
+      opacity: 0;
+    }
+
+    &:hover {
+      color: $pink-1;
+
+
+      &::after {
+        opacity: 1;
+        height: 12px;
+        width: 12px;
+      }
+
+    }
+  }
+
+  .active {
+    color: $pink-1  !important;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
   .header__contact {
     margin-left: $m-9;
+
     .header__contact-social {
       margin: 0 $m-1;
       @include textStyle($fs-1, $fw-0, $lh-0, $black);
@@ -139,10 +183,12 @@
         color: $pink-1;
       }
     }
+
     .header__contact-phone {
       margin-right: $m-3;
       @extend .mybtn;
       @extend .mybtn.mybtn-primary;
+
       i {
         margin-right: $m-2;
       }
