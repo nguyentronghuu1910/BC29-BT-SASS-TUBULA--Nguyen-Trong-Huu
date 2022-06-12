@@ -4,6 +4,7 @@
 }
 
 .header {
+  transition: $transit-1;
   max-height: 100px;
   transition: all 0.5s ease-in-out;
   // transform: translateY(0%);
@@ -41,6 +42,7 @@
   .header__logo {
     .header__logo-img {
       @include img(5rem, 5rem);
+      opacity: 0;
     }
   }
 }

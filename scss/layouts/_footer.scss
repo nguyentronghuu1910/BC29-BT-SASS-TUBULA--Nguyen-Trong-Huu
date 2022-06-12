@@ -126,11 +126,29 @@
       }
     }
 
-    .footer__item:nth-child(2),
-    .footer__item:nth-child(3) {
+    .footer__item:nth-child(1) {
+      @include animate-1($aniName-1, $delay-1);
+    }
+
+    .footer__item:nth-child(2) {
+      @include animate-1($aniName-1, $delay-2);
+
       p {
         border-bottom: 1px solid $black-2;
       }
+
+    }
+
+    .footer__item:nth-child(3) {
+      @include animate-1($aniName-1, $delay-3);
+
+      p {
+        border-bottom: 1px solid $black-2;
+      }
+    }
+
+    .footer__item:nth-child(4) {
+      @include animate-1($aniName-1, $delay-4);
     }
   }
 }
